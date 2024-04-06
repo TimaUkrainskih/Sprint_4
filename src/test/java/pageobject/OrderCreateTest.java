@@ -1,13 +1,10 @@
 package pageobject;
 
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import pageobject.constants.ScooterColours;
+
 
 import static org.junit.Assert.assertTrue;
 import static pageobject.constants.CreateOrderButton.UP_BUTTON;
@@ -15,9 +12,7 @@ import static pageobject.constants.RentDurationConstants.*;
 import static pageobject.constants.ScooterColours.*;
 
 @RunWith(Parameterized.class)
-public class OrderCreateTest {
-    private WebDriver driver;
-    private final String site = "https://qa-scooter.praktikum-services.ru/";
+public class OrderCreateTest extends WebDriverManager {
     private final String name;
     private final String surname;
     private final String address;
@@ -25,13 +20,13 @@ public class OrderCreateTest {
     private final String telephoneNumber;
     private final String date;
     private final String duration;
-    private final Enum colour;
+    private final ScooterColours colour;
     private final String comment;
     private final String expectedHeader = "Заказ оформлен";
     private final Enum button;
 
     public OrderCreateTest(Enum button, String name, String surname, String address, int stateMetroNumber, String telephoneNumber,
-                           String date, String duration, Enum colour, String comment) {
+                           String date, String duration, ScooterColours colour, String comment) {
         this.button = button;
         this.name = name;
         this.surname = surname;
@@ -53,19 +48,8 @@ public class OrderCreateTest {
         };
     }
 
-    @Before
-    public void startUp() {
-        driver = new FirefoxDriver(); // Сменить на ChromeDriver(); для тестов в Google Chrome - нельзя оформить заказ из-за бага
-        driver.get(site);
-    }
-
-    @After
-    public void teardown() {
-        driver.quit();
-    }
-
     @Test
-    public void testCreateOrderWithUpButton() {
+    public void testCreateOrderWithUpButtonSuccess() {
         new HomePage(driver)
                 .waitForLoadHomePage()
                 .clickCreateOrderButton(button);

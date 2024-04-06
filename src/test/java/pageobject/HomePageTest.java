@@ -1,22 +1,15 @@
 package pageobject;
 
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 
 import static org.junit.Assert.assertEquals;
 import static pageobject.constants.HomePageConstants.*;
 
 @RunWith(Parameterized.class)
-public class HomePageTest {
-    private WebDriver driver;
-    private final String site = "https://qa-scooter.praktikum-services.ru/";
+public class HomePageTest extends WebDriverManager {
     private final By question;
     private final By answer;
     private final By labelResult;
@@ -41,17 +34,6 @@ public class HomePageTest {
                 {QUESTION_6, ANSWER_6, ITEM_ANSWER_6, TEXT_ANSWER_6},
                 {QUESTION_7, ANSWER_7, ITEM_ANSWER_7, TEXT_ANSWER_7},
         };
-    }
-
-    @Before
-    public void startUp() {
-        driver = new FirefoxDriver(); // Сменить на ChromeDriver(); для тестов в Google Chrome
-        driver.get(site);
-    }
-
-    @After
-    public void teardown() {
-        driver.quit();
     }
 
     @Test

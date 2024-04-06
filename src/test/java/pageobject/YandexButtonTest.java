@@ -1,12 +1,8 @@
 package pageobject;
 
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import pageobject.constants.HomePageConstants;
 
 
 import java.util.ArrayList;
@@ -15,20 +11,7 @@ import java.util.concurrent.TimeUnit;
 
 import static org.junit.Assert.assertEquals;
 
-public class YandexButtonTest {
-    WebDriver driver;
-    private final String site = "https://qa-scooter.praktikum-services.ru/";
-
-    @Before
-    public void startUp() {
-        driver = new ChromeDriver(); // Сменить на ChromeDriver(); для тестов в Google Chrome
-        driver.get(site);
-    }
-
-    @After
-    public void teardown() {
-        driver.quit();
-    }
+public class YandexButtonTest extends WebDriverManager {
 
     @Test
     public void clickYandexFromAboutRenterPage() {
@@ -42,12 +25,12 @@ public class YandexButtonTest {
                 .clickYandex();
 
         List<String> browserTabs = new ArrayList<String>(driver.getWindowHandles());
-            driver.switchTo().window(browserTabs.get(1));
-            driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
-            driver.findElement(By.xpath(".//a[@class='desktop-base-header__logoLink-aE']"));
+        driver.switchTo().window(browserTabs.get(1));
+        driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
+        driver.findElement(By.xpath(HomePageConstants.LOGO_LINK_XPATH));
         String currentUrl = driver.getCurrentUrl();
 
-        assertEquals("https://dzen.ru/?yredirect=true", currentUrl);
+        assertEquals(HomePageConstants.DZEN_URL, currentUrl);
     }
 
     @Test
@@ -71,12 +54,12 @@ public class YandexButtonTest {
                 .clickYandex();
 
         List<String> browserTabs = new ArrayList<String>(driver.getWindowHandles());
-            driver.switchTo().window(browserTabs.get(1));
-            driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
-            driver.findElement(By.xpath(".//a[@class='desktop-base-header__logoLink-aE']"));
+        driver.switchTo().window(browserTabs.get(1));
+        driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
+        driver.findElement(By.xpath(HomePageConstants.LOGO_LINK_XPATH));
         String currentUrl = driver.getCurrentUrl();
 
-        assertEquals("https://dzen.ru/?yredirect=true", currentUrl);
+        assertEquals(HomePageConstants.DZEN_URL, currentUrl);
     }
 
     @Test
@@ -93,11 +76,11 @@ public class YandexButtonTest {
                 .clickYandex();
 
         List<String> browserTabs = new ArrayList<String>(driver.getWindowHandles());
-            driver.switchTo().window(browserTabs.get(1));
-            driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
-            driver.findElement(By.xpath(".//a[@class='desktop-base-header__logoLink-aE']"));
+        driver.switchTo().window(browserTabs.get(1));
+        driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
+        driver.findElement(By.xpath(HomePageConstants.LOGO_LINK_XPATH));
         String currentUrl = driver.getCurrentUrl();
 
-        assertEquals("https://dzen.ru/?yredirect=true", currentUrl);
+        assertEquals(HomePageConstants.DZEN_URL, currentUrl);
     }
 }

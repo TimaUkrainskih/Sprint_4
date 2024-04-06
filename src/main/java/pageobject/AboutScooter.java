@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import pageobject.constants.ScooterColours;
 
 import java.time.Duration;
 
@@ -47,7 +48,7 @@ public class AboutScooter {
     }
 
     // Метод выбора цвета самоката
-    public AboutScooter changeColour(Enum colour) {
+    public AboutScooter changeColour(ScooterColours colour) {
         if (colour.equals(BLACK)) {
             driver.findElement(colourBlack).click();
         } else if (colour.equals(GREY)) {

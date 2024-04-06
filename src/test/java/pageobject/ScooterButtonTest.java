@@ -1,31 +1,14 @@
 package pageobject;
 
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import pageobject.constants.HomePageConstants;
 
 import java.time.Duration;
 
 import static org.junit.Assert.assertEquals;
 
-public class ScooterButtonTest {
-    WebDriver driver;
-    private final String site = "https://qa-scooter.praktikum-services.ru/";
-
-    @Before
-    public void startUp() {
-        driver = new FirefoxDriver(); // Сменить на ChromeDriver(); для тестов в Google Chrome
-        driver.get(site);
-    }
-
-    @After
-    public void teardown() {
-        driver.quit();
-    }
+public class ScooterButtonTest extends WebDriverManager {
 
     @Test
     public void clickScooterFromAboutRenterPage() {
@@ -40,7 +23,7 @@ public class ScooterButtonTest {
 
         new WebDriverWait(driver, Duration.ofSeconds(5));
 
-        assertEquals("https://qa-scooter.praktikum-services.ru/", driver.getCurrentUrl());
+        assertEquals(HomePageConstants.BASE_URL, driver.getCurrentUrl());
     }
 
     @Test
@@ -65,7 +48,7 @@ public class ScooterButtonTest {
 
         new WebDriverWait(driver, Duration.ofSeconds(5));
 
-        assertEquals("https://qa-scooter.praktikum-services.ru/", driver.getCurrentUrl());
+        assertEquals(HomePageConstants.BASE_URL, driver.getCurrentUrl());
     }
 
     @Test
@@ -83,7 +66,7 @@ public class ScooterButtonTest {
 
         new WebDriverWait(driver, Duration.ofSeconds(5));
 
-        assertEquals("https://qa-scooter.praktikum-services.ru/", driver.getCurrentUrl());
+        assertEquals(HomePageConstants.BASE_URL, driver.getCurrentUrl());
     }
 
 }

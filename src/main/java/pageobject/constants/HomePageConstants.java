@@ -49,4 +49,15 @@ public class HomePageConstants {
     public static final String TEXT_ANSWER_6 = "Да, пока самокат не привезли. Штрафа не будет, " +
             "объяснительной записки тоже не попросим. Все же свои.";
     public static final String TEXT_ANSWER_7 = "Да, обязательно. Всем самокатов! И Москве, и Московской области.";
+
+    public static final String SITE_URL = "https://qa-scooter.praktikum-services.ru/";
+    public static final String ORDER_PAGE_URL = "https://qa-scooter.praktikum-services.ru/order";
+
+    public static final String TRACKING_PAGE_URL = "https://qa-scooter.praktikum-services.ru/track?t=aaaaa";
+
+    public static final String BASE_URL = "https://qa-scooter.praktikum-services.ru/";
+    public static final String LOGO_LINK_XPATH = ".//a[@class='desktop-base-header__logoLink-aE']";
+    public static final String DZEN_URL = "https://dzen.ru/?yredirect=true";
+
+
 }
